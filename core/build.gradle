@@ -1,0 +1,11 @@
+
+//apply plugin: 'java'
+
+/*
+dependencies {
+    //compile 'org.slf4j:slf4j-api:1.7.5'
+}*/
+// jar包的名字(无效)
+//archivesBaseName = 'core'
+
+// 还可以定义其他配置，这里直接继承父模块中的配置

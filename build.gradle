@@ -1,0 +1,72 @@
+//子项目通用配置
+subprojects {
+
+    group 'com.kang.gradle'
+    version '1.1-SNAPSHOT'
+
+    //apply plugin: 'groovy'
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+
+    repositories {
+        mavenCentral()
+    }
+    //定义版本号
+    ext {
+        commonLang3Version = '3.4'
+        hibernateVersion='4.3.1.Final'
+        springVersion = '4.2.3.RELEASE'
+    }
+
+
+
+
+    //gradle属性配置
+   /*
+    jar {
+        manifest {
+            attributes("Implementation-Title": "Gradle")
+            attributes 'Class-Path': new File(libPath).list().findAll {
+                 it.endsWith('.jar') }.collect { "$libPath/$it" }.join(' ')
+        }
+    }*/
+
+    configurations {
+        // 所有需要忽略的包定义在此
+        all*.exclude group: 'log4j', module: 'log4j'
+    }
+
+    dependencies {
+        // 通用依赖
+        //compile 'org.codehaus.groovy:groovy-all:2.3.11'
+        compile "org.apache.commons:commons-lang3:$commonLang3Version"
+//    依赖maven中不存在的jar
+//    ext.jarTree = fileTree(dir: 'libs', include: '**/*.jar')
+//    ext.rootProjectLibs = new File(rootProject.rootDir, 'libs').getAbsolutePath()
+//    ext.jarTree += fileTree(dir: rootProjectLibs, include: '**/*.jar')
+//    compile jarTree
+        testCompile 'junit:junit:4.11'
+    }
+
+    //指定编译编码
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    // 显示当前项目下所有用于 compile 的 jar.
+    task listJars(description: 'Display all compile jars.') << {
+        configurations.compile.each { File file -> println file.name }
+    }
+
+}
+
+/*apply plugin: 'java'
+
+dependencies {
+    //compile 'org.slf4j:slf4j-api:1.7.5'
+}*/
+
+
+

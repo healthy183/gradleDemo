@@ -1,0 +1,27 @@
+:dependencies
+
+------------------------------------------------------------
+Root project
+------------------------------------------------------------
+
+archives - Configuration for archive artifacts.
+No dependencies
+
+compile - Compile classpath for source set 'main'.
+\--- org.slf4j:slf4j-api:1.7.5 FAILED
+
+default - Configuration for default artifacts.
+\--- org.slf4j:slf4j-api:1.7.5 FAILED
+
+runtime - Runtime classpath for source set 'main'.
+\--- org.slf4j:slf4j-api:1.7.5 FAILED
+
+testCompile - Compile classpath for source set 'test'.
+\--- org.slf4j:slf4j-api:1.7.5 FAILED
+
+testRuntime - Runtime classpath for source set 'test'.
+\--- org.slf4j:slf4j-api:1.7.5 FAILED
+
+BUILD SUCCESSFUL
+
+Total time: 9.2 secs

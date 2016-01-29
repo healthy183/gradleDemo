@@ -1,0 +1,3 @@
+rootProject.name = 'gradleDemo'
+
+include 'core','web'  //gradle project 命令查看项目结构
